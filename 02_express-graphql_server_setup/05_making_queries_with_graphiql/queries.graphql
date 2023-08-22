@@ -1,0 +1,74 @@
+query SingleClient($clientId: ID!) {
+  client(id: $clientId) {
+    id
+    name
+  }
+}
+
+query SingleClient_2 {
+  client(id: "2") {
+    id
+    name
+    email
+    phone
+  }
+}
+
+query AllClients {
+  clients {
+    id
+    name
+    email
+    phone
+  }
+}
+
+query SingleProject($projectId: ID!) {
+  project(id: $projectId) {
+    id
+    clientId
+    name
+    description
+  }
+}
+
+query SingleProject_2 {
+  project(id: "2") {
+    id
+    name
+    clientId
+  }
+}
+
+query AllProjects {
+  projects {
+    id
+  }
+}
+
+query SingleProjectAndAuthor($projectId: ID!) {
+  project(id: $projectId) {
+    id
+    name
+    clientId
+    description
+    client {
+      id
+      name
+      email
+      phone
+    }
+  }
+}
+
+mutation AddClient {
+  addClient(
+    name: "Tony Stark"
+    email: "ironman@gmail.com"
+    phone: "343-567-4333"
+  ) {
+    id
+    name
+    email
+  }
+}
