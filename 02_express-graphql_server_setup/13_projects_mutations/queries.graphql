@@ -1,0 +1,218 @@
+query SingleClient($clientId: ID!) {
+  client(id: $clientId) {
+    id
+    name
+  }
+}
+
+query SingleClient_2 {
+  client(id: "2") {
+    id
+    name
+    email
+    phone
+  }
+}
+
+query AllClients {
+  clients {
+    id
+    name
+    email
+    phone
+  }
+}
+
+query SingleProject($projectId: ID!) {
+  project(id: $projectId) {
+    id
+    clientId
+    name
+    description
+  }
+}
+
+query SingleProject_2 {
+  project(id: "2") {
+    id
+    name
+    clientId
+  }
+}
+
+query AllProjects {
+  projects {
+    id
+  }
+}
+
+query SingleProjectAndAuthor($projectId: ID!) {
+  project(id: $projectId) {
+    id
+    name
+    clientId
+    description
+    client {
+      id
+      name
+      email
+      phone
+    }
+  }
+}
+
+mutation AddClient {
+  addClient(
+    name: "Tony Stark"
+    email: "ironman@gmail.com"
+    phone: "343-567-4333"
+  ) {
+    id
+    name
+    email
+  }
+}
+
+
+
+query SingleClient($clientId: ID!) {
+  client(id: $clientId) {
+    id
+    name
+  }
+}
+
+query SingleClient_2 {
+  client(id: "2") {
+    id
+    name
+    email
+    phone
+  }
+}
+
+query AllClients {
+  clients {
+    id
+    name
+    email
+    phone
+  }
+}
+
+query SingleProject($projectId: ID!) {
+  project(id: $projectId) {
+    id
+    clientId
+    name
+    description
+  }
+}
+
+query SingleProject_2 {
+  project(id: "2") {
+    id
+    name
+    clientId
+  }
+}
+
+query AllProjects {
+  projects {
+    id
+  }
+}
+
+query SingleProjectAndAuthor($projectId: ID!) {
+  project(id: $projectId) {
+    id
+    name
+    clientId
+    description
+    client {
+      id
+      name
+      email
+      phone
+    }
+  }
+}
+
+mutation AddClient {
+  addClient(
+    name: "Tony Stark"
+    email: "ironman@gmail.com"
+    phone: "343-567-4333"
+  ) {
+    id
+    name
+    email
+  }
+  addClient(
+    name: "Tony Stark"
+    email: "ironman@gmail.com"
+    phone: "343-567-4333"
+  ) {
+    id
+    name
+    email
+  }
+}
+
+mutation DeleteClient {
+  deleteClient(id: "64e21274ed5b63e644b70bb6") {
+    id
+  }
+}
+
+#----
+
+mutation DeleteClient($clientDeleteId: ID!) {
+  deleteClient(id: $clientDeleteId) {
+    id
+  }
+}
+
+{
+  "clientId": "1",
+  "projectId": "3",
+  "clientDeleteId": "64e5d2c3c762c01fa2576b35",
+}
+
+# ---------------------
+
+mutation AddProject {
+  addProject(
+    name: "eCommerce Website"
+    description: "Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Donec quam felis, ultricies nec, pellentesque eu."
+    clientId: "64e20e81aa0033669af1ce12"
+    status: "In Progress"
+  ) {
+    id
+    name
+    status
+  }
+}
+
+mutation DeleteProject($projectDeleteId: ID!) {
+  deleteProject(id: $projectDeleteId) {
+    id
+  }
+}
+
+mutation UpdateProject($projectUpdateId: ID!) {
+  updateProject(id: $projectUpdateId, name: "Project name updated") {
+    id
+  }
+}
+
+{
+  "clientId": "1",
+  "projectId": "3",
+  "clientDeleteId": "64e5d2c3c762c01fa2576b35",
+  "clientOwnerId": "64e212a9398a587c3123dab5",
+  "projectDeleteId": "64e5ddd7634a491211065a60",
+  "projectUpdateId": "64e5ddce634a491211065a5e",
+}
+
+# ---------------------
